@@ -23,5 +23,7 @@ git push -u origin master
 ```
 
 * get ng to work right https://github.com/angular/angular-cli/wiki - DONE
+* differences between rxjs version 5 and 6 https://www.academind.com/learn/javascript/rxjs-6-what-changed/ - DONE
+* work on .gitignore issue for bin and obj folders - DONE
+* work on nlog nuget package
 
-* differences between rxjs version 5 and 6 https://www.academind.com/learn/javascript/rxjs-6-what-changed/
