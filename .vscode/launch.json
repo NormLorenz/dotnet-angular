@@ -1,0 +1,59 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "NET Core Launch (API)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build api",
+      "program": "${workspaceFolder}/dotnet-angular.API/bin/Debug/netcoreapp2.2/dotnet-angular.API.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/dotnet-angular.API",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:5055",
+      },
+    },
+    {
+      "name": "NET Core Launch (SPA)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build spa",
+      "program": "${workspaceFolder}/dotnet-angular.SPA/bin/Debug/netcoreapp2.2/dotnet-angular.SPA.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/dotnet-angular.SPA",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "launchBrowser": {
+        "enabled": true,
+        "args": "${auto-detect-url}",
+        "windows": {
+          "command": "cmd.exe",
+          "args": "/C start ${auto-detect-url}"
+        },
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:5050",
+      },
+      "sourceFileMap": {
+        "/Views": "${workspaceFolder}/dotnet-angular.SPA/Views"
+      }
+    },
+  ],
+  "compounds": [
+    {
+      "name": "NET Core Launch (SPA and API)",
+      "configurations": [
+        "NET Core Launch (API)",
+        "NET Core Launch (SPA)"
+      ]
+    }
+  ]
+}
