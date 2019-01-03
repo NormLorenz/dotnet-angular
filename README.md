@@ -22,6 +22,6 @@ git remote add origin https://github.com/NormLorenz/dotnet-angular.git
 git push -u origin master
 ```
 
-* next up
+* get ng to work right https://github.com/angular/angular-cli/wiki - DONE
 
-  * get ng to work
+* differences between rxjs version 5 and 6 https://www.academind.com/learn/javascript/rxjs-6-what-changed/

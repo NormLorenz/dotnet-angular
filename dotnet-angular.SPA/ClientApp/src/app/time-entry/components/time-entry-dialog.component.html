@@ -1,0 +1,126 @@
+<h2>{{headerText}}</h2>
+
+<form class='example-form'>
+
+  <!-- date field
+    isValid - valid date within the last six months
+    isEnabled - input/date isNew or isEdit action
+    isDisabled - readonly input/date isDelete action
+  -->
+  <mat-form-field class='example-full-width' *ngIf='dateIsEnabled()'>
+    <input matInput [matDatepicker]='picker' placeholder='Date' name='date' [(ngModel)]='timeEntry.entryDate' [min]='minDate'
+      [max]='maxDate'>
+    <mat-datepicker-toggle matSuffix [for]='picker'>
+      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class='example-full-width' *ngIf='!dateIsEnabled()'>
+    <input matInput [matDatepicker]='picker' name='date' [ngModel]='timeEntry.entryDate' readonly=true>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <!-- department field
+    isValid - item selected
+    isEnabled - dropdown isNew action
+    isDisabled - readonly input/text
+  -->
+  <mat-form-field class='example-full-width' *ngIf='departmentIsEnabled()'>
+    <mat-select placeholder='Department' name='department' [(ngModel)]='selectedDepartment' (change)='onDepartmentChange()'>
+      <mat-option *ngFor='let department of filteredDepartments' [value]='department'>
+        {{department.departmentDescription}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class='example-full-width' *ngIf='!departmentIsEnabled()'>
+    <input type='text' placeholder='Department' name='department' matInput [ngModel]='timeEntry.departmentDescription' readonly=true>
+  </mat-form-field>
+
+  <!-- function type field
+    isValid - item selected
+    isEnabled - dropdown isNew action
+    isDisabled - readonly input/text
+  -->
+  <mat-form-field class='example-full-width' *ngIf='functionTypeIsEnabled()'>
+    <mat-select placeholder='Function Type' name='functiontype' [(ngModel)]='selectedFunctionType' (change)='onFunctionTypeChange()'
+      required>
+      <mat-option *ngFor='let functionType of filteredFunctionTypes' [value]='functionType'>
+        {{functionType.functionTypeDescription}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf='functionTypeIsValid'></mat-error>
+  </mat-form-field>
+
+  <mat-form-field class='example-full-width' *ngIf='!functionTypeIsEnabled()'>
+    <input type='text' placeholder='Function Type' name='functiontype' matInput [ngModel]='timeEntry.functionTypeDescription'
+      readonly=true>
+  </mat-form-field>
+
+  <!-- function sub type field
+    isValid - item selected
+    isEnabled - dropdown isNew action and function field selected
+    isDisabled - readonly input/text
+  -->
+  <mat-form-field class='example-full-width' *ngIf='functionSubTypeEnabled()'>
+    <mat-select placeholder='Function Sub Type' name='functionsubtype' [(ngModel)]='selectedFunctionSubType' (change)='onFunctionSubTypeChange()'
+      required>
+      <mat-option *ngFor='let functionSubType of filteredFunctionSubTypes' [value]='functionSubType'>
+        {{functionSubType.functionSubTypeDescription}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf='functionSubTypeIsValid'></mat-error>
+  </mat-form-field>
+
+  <mat-form-field class='example-full-width' *ngIf='!functionSubTypeEnabled()'>
+    <input type='text' placeholder='Sub Type' name='functionsubtype' matInput [ngModel]='timeEntry.functionSubTypeDescription'
+      readonly=true>
+  </mat-form-field>
+
+  <!-- # of items field
+    isValid - number not blank and greater than zero
+    isEnabled - input/text isNew or isEdit action and sub type field selected
+    isDisabled - readonly input/text
+    isHidden - showNumberOfItems equal to false
+  -->
+  <mat-form-field class='example-partial-width' *ngIf='!itemIsHidden()'>
+    <input type='number' placeholder='# of Items' name='item' matInput [(ngModel)]='timeEntry.numberOfItems' min='0' [readonly]='!itemIsEnabled()'
+      required>
+    <mat-error *ngIf='itemIsValid'></mat-error>
+  </mat-form-field>
+
+  <!-- time in minutes field
+    isValid - number not blank and greater than zero
+    isEnabled - input/text isNew or isEdit action and sub type field selected
+    isDisabled - readonly input/text
+    isHidden - showTimeInMinutes equal to false
+  -->
+  <mat-form-field class='example-partial-width' *ngIf='!timeIsHidden()'>
+    <input type='number' placeholder='Time in Minutes' name='time' matInput [(ngModel)]='timeEntry.timeInMinutes' min='0' [readonly]='!timeIsEnabled()'
+      required>
+    <mat-error *ngIf='timeIsValid'></mat-error>
+  </mat-form-field>
+
+  <!-- comments/details field
+    isValid - n/a
+    isEnabled - textarea isNew or isEdit
+    isDisabled - readonly textarea
+  -->
+  <mat-form-field class='example-full-width'>
+    <textarea matInput placeholder='Comments/Details' name='comment' [(ngModel)]='timeEntry.description' [readonly]='!commentIsEnabled()'></textarea>
+  </mat-form-field>
+
+  <!-- instructions field
+    isValid - n/a
+    isEnabled - n/a
+    isDisabled - readonly textarea
+  -->
+  <mat-form-field class='example-full-width'>
+    <textarea matInput placeholder='Instructions' name='instruction' [ngModel]='instructions' readonly=true></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color='{{buttonColor}}' (click)='buttonClick("ok")' [disabled]='!timeEntryIsValid()'>{{buttonText}}</button>
+  <button mat-raised-button (click)='buttonClick("cancel")'>Cancel</button>
+
+</form>

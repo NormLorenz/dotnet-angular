@@ -1,0 +1,69 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.example-footer {
+  min-height: 64px;
+  padding: 24px 0 0 0;
+  font-size: 14px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-radio-group {
+  font-size: 14px;
+}
+
+.mat-radio-button {
+  padding: 8px 8px 0;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 400px;
+}
+
+.mat-header-cell.mat-sort-header-sorted {
+  color: black;
+}
+
+.mat-row:nth-child(even){
+  background-color:white;
+}
+
+.mat-row:nth-child(odd){
+  background-color:rgb(231, 231, 231);
+}
+
+.mat-column-date {
+  flex: 0 0 200px;
+}
+
+.mat-column-items {
+  flex: 0 0 75px;
+  text-align: center;
+}
+
+.mat-column-minutes {
+  flex: 0 0 75px;
+  text-align: center;
+}
+
+.mat-column-actions {
+  flex: 0 0 150px;
+  text-align: center;
+}
+
+.mat-icon {
+  font-size: 20px;
+}
