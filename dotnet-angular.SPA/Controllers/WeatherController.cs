@@ -11,11 +11,11 @@ namespace dotnet_angular.SPA.Controllers
   {
     private static string[] Summaries = new[]
     {
-      "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+      "Bone Cold", "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
     [HttpGet("[action]")]
-    public IEnumerable<WeatherForecast> WeatherForecasts()
+    public IEnumerable<WeatherForecast> Forecasts()
     {
       var rng = new Random();
       return Enumerable.Range(1, 5).Select(index => new WeatherForecast

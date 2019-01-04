@@ -16,7 +16,8 @@ import { IdentityService } from '../../services/identity.service';
 
 import { TimeEntryDialogComponent } from '../components/time-entry-dialog.component';
 import { RequestAPI, ResponseAPI } from '../models/api.interface';
-import moment = require('moment');
+//import moment = require('moment');
+import * as moment from 'moment';
 
 export interface DurationType {
   id: number;

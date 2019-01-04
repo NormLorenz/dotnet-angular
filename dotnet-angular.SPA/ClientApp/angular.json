@@ -52,18 +52,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dotnet_angular.SPA:build"
+            "browserTarget": "dotnet-angular.SPA:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dotnet_angular.SPA:build:production"
+              "browserTarget": "dotnet-angular.SPA:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dotnet_angular.SPA:build"
+            "browserTarget": "dotnet-angular.SPA:build"
           }
         },
         "test": {
@@ -130,7 +130,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "dotnet_angular.SPA:serve"
+            "devServerTarget": "dotnet-angular.SPA:serve"
           }
         },
         "lint": {
@@ -145,5 +145,5 @@
       }
     }
   },
-  "defaultProject": "dotnet_angular.SPA"
+  "defaultProject": "dotnet-angular.SPA"
 }
